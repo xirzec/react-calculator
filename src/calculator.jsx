@@ -1,7 +1,12 @@
+import Display from "./display";
+import HistoryPanel from "./historyPanel";
+import InputPanel from "./inputPanel";
 import React from "react";
 
-export default class Calculator extends React.Component {
-    render() {
-        return <div>I'm a calculator</div>;
-    }
-}
+export default () => {
+    return <div>
+        <Display/>
+        <InputPanel/>
+        <HistoryPanel/>
+    </div>;
+};
