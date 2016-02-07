@@ -23,9 +23,13 @@
   },
   "homepage": "https://github.com/xirzec/react-calculator#readme",
   "dependencies": {
+    "bignumber.js": "^2.1.4",
+    "immutable": "^3.7.6",
     "radium": "^0.16.5",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",

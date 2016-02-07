@@ -1,5 +1,5 @@
 import Button from "./button";
-import React from "react";
+import React, { PropTypes } from "react";
 import Radium from "radium";
 
 const buttons = [
@@ -19,22 +19,27 @@ const buttons = [
     { label: ".", kind: "alternate" },
     { label: "=", kind: "primary" },
     { label: "+", kind: "secondary" },
+    { label: "C", kind: "secondary" }
 ];
 
 const InputPanel = (props) => {
-    const func = (label) => { console.log(label); };
     const buttonEls = buttons.map((button) => {
         return <Button 
             key={button.label}
             label={button.label} 
             kind={button.kind} 
-            onClick={() => func(button.label) } 
+            onClick={() => props.onKeyPress(button.label) } 
         />;
     });
     return <div style={styles}>
         {buttonEls}
     </div>;
 }
+
+InputPanel.propTypes = {
+    onKeyPress: PropTypes.func.isRequired
+}
+
 
 const styles = {
     width: 280
