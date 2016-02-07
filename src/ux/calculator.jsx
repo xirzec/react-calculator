@@ -20,7 +20,7 @@ Calculator.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        display: state.get('buffer').toString()
+        display: state.get('buffer').join(" ")
     };
 }
 
