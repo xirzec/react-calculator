@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import Radium from "radium";
 
 const Button = (props) => {
@@ -13,16 +13,17 @@ const Button = (props) => {
 }
 
 Button.propTypes = {
-    label: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func.isRequired,
-    kind: React.PropTypes.oneOf(['primary', 'secondary', 'alternate']).isRequired
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    kind: PropTypes.oneOf(['primary', 'secondary', 'alternate']).isRequired
 }
 
 const styles = {
     base: {
         color: '#444',
         height: 30,
-        width: 60
+        width: 60,
+        margin: 5
     },
     
     primary: {

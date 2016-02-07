@@ -1,31 +1,43 @@
 import Button from "./button";
 import React from "react";
+import Radium from "radium";
 
-export default class InputPanel extends React.Component {
-    render() {
-        let func = () => { console.log("test"); };
-        return <div style={styles}>
-           <Button label="7" onClick={func} kind="alternate" />
-           <Button label="8" onClick={func} kind="alternate" />
-           <Button label="9" onClick={func} kind="alternate" />
-           <Button label="/" onClick={func} kind="secondary" />
-           <Button label="4" onClick={func} kind="alternate" />
-           <Button label="5" onClick={func} kind="alternate" />
-           <Button label="6" onClick={func} kind="alternate" />
-           <Button label="*" onClick={func} kind="secondary" />
-           <Button label="1" onClick={func} kind="alternate" />
-           <Button label="2" onClick={func} kind="alternate" />
-           <Button label="3" onClick={func} kind="alternate" />
-           <Button label="-" onClick={func} kind="secondary" />
-           <Button label="0" onClick={func} kind="alternate" />
-           <Button label="." onClick={func} kind="alternate" />
-           <Button label="=" onClick={func} kind="primary" />
-           <Button label="+" onClick={func} kind="secondary" />
-           <Button label="C" onClick={func} kind="secondary" />
-        </div>;
-    }
+const buttons = [
+    { label: "7", kind: "alternate" },
+    { label: "8", kind: "alternate" },
+    { label: "9", kind: "alternate" },
+    { label: "/", kind: "secondary" },
+    { label: "4", kind: "alternate" },
+    { label: "5", kind: "alternate" },
+    { label: "6", kind: "alternate" },
+    { label: "*", kind: "secondary" },
+    { label: "1", kind: "alternate" },
+    { label: "2", kind: "alternate" },
+    { label: "3", kind: "alternate" },
+    { label: "-", kind: "secondary" },
+    { label: "0", kind: "alternate" },
+    { label: ".", kind: "alternate" },
+    { label: "=", kind: "primary" },
+    { label: "+", kind: "secondary" },
+];
+
+const InputPanel = (props) => {
+    const func = (label) => { console.log(label); };
+    const buttonEls = buttons.map((button) => {
+        return <Button 
+            key={button.label}
+            label={button.label} 
+            kind={button.kind} 
+            onClick={() => func(button.label) } 
+        />;
+    });
+    return <div style={styles}>
+        {buttonEls}
+    </div>;
 }
 
 const styles = {
-    width: 240
+    width: 280
 };
+
+export default Radium(InputPanel);

@@ -5,7 +5,7 @@ import React from "react";
 
 export default () => {
     return <div>
-        <Display/>
+        <Display activeText="Active Text" prevText="previous answer" />
         <InputPanel/>
         <HistoryPanel/>
     </div>;
